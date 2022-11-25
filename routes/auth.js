@@ -52,7 +52,7 @@ router.post('/createuser', [
 
 
 //Route 2 : Authenticte user using : POST "/api/auth/login"
-router.get('/login', [
+router.post('/login', [
     body('email', 'Enter a valid email').isEmail(),
     body('password', 'Password cannot be blank').exists()
 ], async (req, res) => {
