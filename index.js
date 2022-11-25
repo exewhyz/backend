@@ -10,7 +10,7 @@ app.use(cors());
 app.use(express.json());
 
 app.get('/', (req,res)=>{
- res.send('Hello')
+ res.send('Server Started')
 });
 
 app.use('/api/auth', require('./routes/auth'));
