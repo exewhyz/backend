@@ -1,5 +1,5 @@
-const { request, response } = require('express');
-const jwt = require('jsonwebtoken');
+// const { request, response } = require('express');
+var jwt = require('jsonwebtoken');
 const JWT_SECRET = '@ExeWhyZ$Auth&Secret';
 
 const fetchuser = (req, res, next) => {
@@ -10,7 +10,7 @@ const fetchuser = (req, res, next) => {
     }
     try {
         const data = jwt.verify(token, JWT_SECRET);
-        request.user = data.user;
+        req.user = data.user;
         next();
     } catch (error) {
         res.status(401).send({ error: "Please authenticate using a valid token" })
