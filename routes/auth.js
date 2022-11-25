@@ -10,7 +10,7 @@ var fetchuser = require('../middleware/fetchuser');
 const JWT_SECRET =process.env.JWT_SECRET;
 
 //Route 1 : Create user using : POST "/api/auth/createuser"
-router.get('/createuser', [
+router.post('/createuser', [
     body('name', 'Enter a valid name').isLength({ min: 3 }),
     body('email', 'Enter a valid email').isEmail(),
     body('password', 'Password must be atleast 8 characters').isLength({ min: 8 })
@@ -52,7 +52,7 @@ router.get('/createuser', [
 
 
 //Route 2 : Authenticte user using : POST "/api/auth/login"
-router.post('/login', [
+router.get('/login', [
     body('email', 'Enter a valid email').isEmail(),
     body('password', 'Password cannot be blank').exists()
 ], async (req, res) => {
